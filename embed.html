@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"><title>Get a cleaning estimate</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/config.js" defer></script><script src="assets/engine.js" defer></script><script src="assets/widget.js" defer></script>
+</head>
+<body class="widget">
+  <main class="quote-app">
+    <div class="quote-header"><span class="brand-dot">✦</span><div><h2 id="brand">Northline Cleaning</h2><small id="tagline">A cleaner home starts here.</small></div></div>
+    <section class="quote-panel">
+      <h3>Get an instant estimate</h3><p>Tell us about your space and we'll calculate a starting price.</p>
+      <label class="field-title">What kind of cleaning?</label>
+      <div class="choice-row" role="group" aria-label="Type of cleaning">
+        <button type="button" class="choice" data-group="service" data-value="standard" aria-pressed="true">Standard</button>
+        <button type="button" class="choice" data-group="service" data-value="deep" aria-pressed="false">Deep clean</button>
+        <button type="button" class="choice" data-group="service" data-value="moving" aria-pressed="false">Move in/out</button>
+      </div>
+      <label class="field-title">What needs cleaning?</label>
+      <div class="choice-row two" role="group" aria-label="Scope of cleaning">
+        <button type="button" class="choice" data-group="scope" data-value="full" aria-pressed="true">Entire home</button>
+        <button type="button" class="choice" data-group="scope" data-value="partial" aria-pressed="false">Selected rooms only</button>
+      </div>
+      <label class="field-title">Tell us about your home</label>
+      <div class="room-grid">
+        <div class="number-control"><span>Bedrooms</span><div class="counter"><button type="button" data-room="bedrooms" data-step="-1" aria-label="Remove one bedroom">−</button><output id="bedrooms">2</output><button type="button" data-room="bedrooms" data-step="1" aria-label="Add one bedroom">+</button></div></div>
+        <div class="number-control"><span>Bathrooms</span><div class="counter"><button type="button" data-room="bathrooms" data-step="-1" aria-label="Remove one bathroom">−</button><output id="bathrooms">1</output><button type="button" data-room="bathrooms" data-step="1" aria-label="Add one bathroom">+</button></div></div>
+      </div>
+      <div id="partialOptions" hidden>
+        <label class="field-title">Other rooms to clean</label>
+        <div class="checklist">
+          <label class="checkline"><input type="checkbox" id="kitchen" checked> Kitchen</label>
+          <label class="checkline"><input type="checkbox" id="living" checked> Living area</label>
+        </div>
+      </div>
+      <label class="field-title">How often?</label>
+      <div class="choice-row" role="group" aria-label="Cleaning frequency">
+        <button type="button" class="choice" data-group="frequency" data-value="once" aria-pressed="true">One-time</button>
+        <button type="button" class="choice" data-group="frequency" data-value="biweekly" aria-pressed="false">Every 2 weeks</button>
+        <button type="button" class="choice" data-group="frequency" data-value="weekly" aria-pressed="false">Weekly</button>
+      </div>
+      <label class="field-title">Optional add-ons</label>
+      <div class="checklist">
+        <label class="checkline" id="largeHomeRow"><input type="checkbox" id="largeHome"> Large home (2,000+ sq ft)</label>
+        <label class="checkline"><input type="checkbox" data-extra="oven"> Inside oven</label>
+        <label class="checkline"><input type="checkbox" data-extra="fridge"> Inside fridge</label>
+        <label class="checkline"><input type="checkbox" data-extra="windows"> Interior windows</label>
+      </div>
+      <div class="estimate-panel" aria-live="polite">
+        <div class="label">Your estimated cleaning price</div>
+        <strong id="price">$106–$130</strong>
+        <small>Indicative range only. Final pricing is subject to the provider reviewing the property and service requirements.</small>
+      </div>
+      <button type="button" class="btn request" id="request">Request a final quote →</button>
+      <form id="lead" class="lead-fields" hidden>
+        <strong style="font-size:14px">Send your quote request</strong>
+        <label>Full name<input name="name" type="text" required maxlength="100" autocomplete="name"></label>
+        <label>Email address<input name="email" type="email" required maxlength="150" autocomplete="email"></label>
+        <label>Phone (optional)<input name="phone" type="tel" maxlength="40" autocomplete="tel"></label>
+        <label>Additional details<input name="notes" type="text" maxlength="500" placeholder="Access, pets, preferred date..."></label>
+        <label class="consent"><input type="checkbox" name="consent" required><span id="consentText">I agree to be contacted about this estimate.</span></label>
+        <input name="summary" type="hidden"><input name="startedAt" type="hidden">
+        <div style="position:absolute;left:-10000px" aria-hidden="true"><label>Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn" type="submit" id="send">Continue →</button>
+        <div class="error" id="leadStatus" role="status" aria-live="polite"></div>
+      </form>
+      <p class="hint">No obligation. This calculator does not charge you or reserve an appointment.</p>
+    </section>
+  </main>
+</body>
+</html>
