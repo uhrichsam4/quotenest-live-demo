@@ -4,7 +4,7 @@ window.QUOTENEST_CONFIG = {
   tagline: "A cleaner home starts here.",
   ownerEmail: "",
   currency: "USD",
-  accent: "#137d72",
+  accent: "#c5b8ff",
   prices: {
     base: 65,
     partialBase: 35,

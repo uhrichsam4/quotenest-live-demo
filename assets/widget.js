@@ -21,7 +21,7 @@
     $("brand").textContent = title;
     $("tagline").textContent = String(config.tagline || "Fresh, simple and stress-free.").slice(0, 150);
     $("consentText").textContent = String(config.consentText || "I agree to be contacted about my quote.").slice(0, 300);
-    document.documentElement.style.setProperty("--accent", /^#[0-9a-fA-F]{6}$/.test(config.accent || "") ? config.accent : "#137d72");
+    document.documentElement.style.setProperty("--accent", /^#[0-9a-fA-F]{6}$/.test(config.accent || "") ? config.accent : "#c5b8ff");
     lastQuote = window.QuoteNestEngine.quote(config.prices, state);
     let currency = config.currency || "USD";
     if (!/^[A-Z]{3}$/.test(currency)) currency = "USD";

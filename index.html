@@ -1,56 +1,155 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="QuoteNest — a simple instant estimate widget you can customize for your service business.">
-  <title>QuoteNest — Instant estimates for service websites</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070709">
+  <meta name="description" content="Meet QuoteNest. An instantly customizable quote calculator for cleaning companies. Let visitors explore an estimate and request a final quote.">
+  <title>QuoteNest — The beautiful way to quote</title>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/theme-blackplus.css">
 </head>
-<body class="site">
-  <div class="hero">
-    <header class="max">
-      <a class="logo" href="./index.html"><span class="mark">Q</span>QuoteNest</a>
-      <nav class="nav"><a class="optional" href="#how">How it works</a><a href="#preview">Live demo</a><a href="./studio.html" class="btn secondary">Customize demo ↗</a></nav>
-    </header>
-    <div class="max hero-grid">
-      <div class="hero-copy">
-        <span class="pill">The no-subscription quote widget</span>
-        <h1>Turn visits into <span style="color:#237b63">quote requests.</span></h1>
-        <p>Your customers have questions. Give them a clear starting estimate in seconds, then make it easy to ask for the real quote. Built for local cleaning and home-service websites.</p>
-        <div class="actions"><a class="btn" href="#preview">Try the calculator →</a><a class="btn secondary" href="./studio.html">Edit pricing yourself</a></div>
-        <p class="microcopy">No AI API • No monthly software subscription • Your own pricing rules</p>
+<body class="site blackplus-theme">
+  <div class="site-glow" aria-hidden="true"></div>
+  <header class="topbar max">
+    <a class="brand" href="./index.html" aria-label="QuoteNest home"><span class="brand-icon" aria-hidden="true">Q<span>+</span></span><span>quote<span class="brand-light">nest</span></span></a>
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#experience">The experience</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <a class="nav-action" href="./studio.html">Open studio <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="new-hero max" aria-labelledby="hero-title">
+      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+      <div class="hero-heading">
+        <span class="tiny-label"><span class="tiny-spark" aria-hidden="true">✳</span> INTRODUCING THE INSTANT QUOTE EXPERIENCE</span>
+        <h1 id="hero-title">Meet<br><span class="gradient-title">QuoteNest<span class="hero-plus">+</span></span></h1>
+        <p>Give customers a price they can explore, and your business a better first impression. Beautiful quotes. Your rules. Zero subscriptions.</p>
+        <div class="new-actions">
+          <a class="primary-action" href="#experience">Explore the live demo <span aria-hidden="true">↗</span></a>
+          <a class="ghost-action" href="./studio.html">Customize your own <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <div class="preview-shell" id="preview">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">your-business.com / instant-quote</span></div>
-        <iframe src="embed.html" title="Interactive demo of cleaning quote calculator" loading="eager"></iframe>
+      <div class="showcase" aria-label="QuoteNest product preview">
+        <div class="showcase-light" aria-hidden="true"></div>
+        <div class="mock-device">
+          <div class="mock-top">
+            <div class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="mock-domain"><span class="lock" aria-hidden="true">◆</span> yourbusiness.com / quote</span>
+            <span class="mock-top-end">↗</span>
+          </div>
+          <iframe src="./embed.html" title="Interactive instant quote calculator preview" loading="eager"></iframe>
+        </div>
+        <div class="floating-chip floating-chip-top" aria-hidden="true">
+          <span class="chip-symbol">✦</span><span><strong>Your brand. Your pricing.</strong><small>Made to feel like you.</small></span>
+        </div>
+        <div class="floating-chip floating-chip-bottom" aria-hidden="true">
+          <span class="chip-number">01<span>/03</span></span><span><strong>Instant estimates</strong><small>Made simple.</small></span>
+        </div>
+      </div>
+      <div class="hero-footnote"><span class="scroll-indicator" aria-hidden="true">↓</span> DESIGNED FOR MODERN SERVICE BUSINESSES <span class="hero-footnote-index">01 / QUOTENEST</span></div>
+    </section>
+
+    <div class="capability-strip" aria-label="Core capabilities">
+      <div class="max capability-inner">
+        <span>NO MONTHLY PLATFORM FEE</span><b aria-hidden="true">✳</b>
+        <span>FULLY CUSTOMIZABLE</span><b aria-hidden="true">✳</b>
+        <span>REAL-TIME ESTIMATES</span><b aria-hidden="true">✳</b>
+        <span>EMBED ANYWHERE</span>
       </div>
     </div>
-  </div>
-  <section class="max features">
-    <div class="eyebrow">Built for service businesses</div>
-    <h2 class="section-title">A small tool with a clear job.</h2>
-    <div class="feature-grid">
-      <article class="feature"><div class="symbol">⚡</div><h3>Instant ballpark price</h3><p>Your existing pricing rules calculate an estimate immediately. Owners can adjust base prices, room rates, extras, and service multipliers.</p></article>
-      <article class="feature"><div class="symbol">📩</div><h3>Easy quote request</h3><p>Visitors can request a final quote. Use an email handoff, or connect a free Google Apps Script backend to collect inquiries in a Google Sheet.</p></article>
-      <article class="feature"><div class="symbol">🪄</div><h3>Your brand, your website</h3><p>Edit the business name, colors, contact information and prices. Host the files on your existing website or a free static host.</p></article>
-    </div>
-  </section>
-  <section class="how" id="how">
-    <div class="max">
-      <div class="eyebrow">Three quick steps</div><h2 class="section-title">Set it up once. Adjust anytime.</h2>
-      <div class="steps">
-        <div class="step"><b>01</b><h3>Enter your rates</h3><p>Use the included pricing studio to set prices that reflect your company, services, and fees.</p></div>
-        <div class="step"><b>02</b><h3>Add it to your site</h3><p>Upload two HTML pages and assets, then link to the calculator or embed the page in your existing website.</p></div>
-        <div class="step"><b>03</b><h3>Receive inquiries</h3><p>Set your email address for visitor-initiated requests. Optional Google Sheets lead storage is included for supported deployments.</p></div>
+
+    <section class="new-section max features-section" id="features" aria-labelledby="features-title">
+      <div class="section-overline"><span>01 / THE PRODUCT</span><span>MADE FOR THE FIRST IMPRESSION</span></div>
+      <div class="section-heading">
+        <h2 id="features-title">Everything flows.<br><span class="soft-gradient">From hello to quote.</span></h2>
+        <p>A simple experience for your customers and an easy-to-manage tool for your team. Thought through, right down to the last detail.</p>
       </div>
-    </div>
-  </section>
-  <section class="cta max">
-    <div class="cta-card">
-      <div><div class="eyebrow" style="color:#9bcfbc">Product preview</div><h2>Make it look like your business.</h2><p>Open the rate editor, change the numbers and watch the estimate update.</p></div>
-      <a class="btn" href="./studio.html">Open pricing studio →</a>
-    </div>
-  </section>
-  <footer class="max">QuoteNest demonstration product. All businesses, prices, and projected benefits shown here are examples. © 2026 QuoteNest.</footer>
+      <div class="bento-grid">
+        <article class="bento bento-large">
+          <div class="bento-copy"><span class="bento-index">01 /</span><h3>A quote that<br>feels effortless.</h3><p>Customers choose the service, rooms, and extras. The price range responds as they go.</p></div>
+          <div class="estimate-art" aria-hidden="true">
+            <div class="estimate-art-header"><span>ESTIMATED PRICE</span><span>↗</span></div>
+            <div class="estimate-art-price">$136 <small>—</small> $160</div>
+            <div class="estimate-art-rule"></div>
+            <div class="estimate-art-row"><span>Standard clean</span><strong>✓</strong></div>
+            <div class="estimate-art-row"><span>Bedrooms · 02</span><strong>+</strong></div>
+            <div class="estimate-art-row"><span>Bathrooms · 01</span><strong>+</strong></div>
+          </div>
+        </article>
+        <article class="bento bento-medium">
+          <div class="bento-copy"><span class="bento-index">02 /</span><h3>Every detail,<br>your decision.</h3><p>Adjust your own rates, discounts, branding, and services in a visual editor.</p></div>
+          <div class="palette-art" aria-hidden="true">
+            <div class="palette-row"><span class="palette-color one"></span><span class="palette-color two"></span><span class="palette-color three"></span><span class="palette-color four"></span></div>
+            <div class="palette-line"><span>Brand styling</span><span class="palette-toggle"></span></div>
+            <div class="palette-line"><span>Pricing rules</span><span class="palette-toggle"></span></div>
+          </div>
+        </article>
+        <article class="bento bento-small">
+          <div class="bento-copy"><span class="bento-index">03 /</span><h3>Works with your site.</h3><p>Link your calculator or embed it in a page you already own. No complex installation required.</p></div>
+          <div class="code-art" aria-hidden="true">&lt;<span>iframe</span> <i>src</i>=<b>"your-quote"</b> /&gt;<span class="code-cursor"></span></div>
+        </article>
+        <article class="bento bento-small bento-glow">
+          <div class="bento-copy"><span class="bento-index">04 /</span><h3>From interest to inquiry.</h3><p>Invite visitors to contact you about their estimate. Optional Google Sheets integration is included.</p></div>
+          <div class="lead-art" aria-hidden="true"><span>New quote request</span><span class="lead-art-arrow">↗</span><strong>Let's get started.</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="experience-band" id="experience" aria-labelledby="experience-title">
+      <div class="max experience-wrap">
+        <div class="section-overline"><span>02 / THE EXPERIENCE</span><span>TRY IT YOURSELF</span></div>
+        <div class="experience-heading"><h2 id="experience-title">Designed to be<br><span class="soft-gradient">actually useful.</span></h2><p>No static mockups here. Change the room count, choose a deep clean or price individual rooms. Watch the real calculator work.</p></div>
+        <div class="product-stage">
+          <div class="stage-side">
+            <span class="stage-eyebrow">LIVE PRODUCT / 01</span>
+            <div class="stage-rail"><span class="active-rail"></span><span></span><span></span></div>
+            <h3>Try the<br>experience.</h3>
+            <p>Everything you see is interactive, with editable pricing behind it.</p>
+            <a href="./studio.html" class="stage-link">Explore the pricing studio <span aria-hidden="true">↗</span></a>
+            <div class="stage-corner" aria-hidden="true">QN / 2026</div>
+          </div>
+          <div class="live-device">
+            <div class="mock-top">
+              <div class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="mock-domain">interactive preview / live calculator</span>
+              <a href="./embed.html" target="_blank" rel="noopener" aria-label="Open the full calculator in a new tab">↗</a>
+            </div>
+            <iframe src="./embed.html" title="Try the live QuoteNest cleaning estimate calculator" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="product-note"><span>● LIVE INTERACTIVE DEMO</span><span>Sample pricing only. Final quotes are confirmed by the business.</span></div>
+      </div>
+    </section>
+
+    <section class="new-section max steps-section" id="how" aria-labelledby="steps-title">
+      <div class="section-overline"><span>03 / SETUP</span><span>YOU'RE IN CONTROL</span></div>
+      <div class="section-heading"><h2 id="steps-title">Your brand.<br><span class="soft-gradient">Up and running.</span></h2><p>No complicated onboarding. Make it yours in a few straightforward steps.</p></div>
+      <div class="new-steps">
+        <article><span class="step-number">01</span><div><h3>Make it yours.</h3><p>Open the pricing studio and enter your business name, preferred color, contact email, and real service rates.</p></div><span class="step-arrow" aria-hidden="true">↗</span></article>
+        <article><span class="step-number">02</span><div><h3>Place it on your site.</h3><p>Add a link to the quote page or embed the widget directly in your website. Works with free static hosting.</p></div><span class="step-arrow" aria-hidden="true">↗</span></article>
+        <article><span class="step-number">03</span><div><h3>Receive quote requests.</h3><p>Let customers prepare a request through their email app, or connect the optional Google Sheets workflow.</p></div><span class="step-arrow" aria-hidden="true">↗</span></article>
+      </div>
+    </section>
+
+    <section class="closing max" aria-labelledby="closing-title">
+      <div class="closing-orb" aria-hidden="true"></div>
+      <span class="tiny-label">READY WHEN YOU ARE</span>
+      <h2 id="closing-title">A smarter start<br>for every <em>quote.</em></h2>
+      <p>Make the experience yours. Adjust every detail, then share the calculator with customers.</p>
+      <a class="primary-action" href="./studio.html">Open QuoteNest Studio <span aria-hidden="true">↗</span></a>
+      <span class="closing-watermark" aria-hidden="true">Q+</span>
+    </section>
+  </main>
+  <footer class="new-footer max">
+    <a class="brand" href="./index.html" aria-label="QuoteNest home"><span class="brand-icon" aria-hidden="true">Q<span>+</span></span><span>quote<span class="brand-light">nest</span></span></a>
+    <span>Made for businesses that care about the details.</span>
+    <nav aria-label="Footer"><a href="#features">Features</a><a href="./embed.html">Calculator</a><a href="./studio.html">Studio</a></nav>
+    <small>© 2026 QuoteNest. A demonstration product. Example brands and rates are illustrative.</small>
+  </footer>
 </body>
 </html>
