@@ -50,7 +50,9 @@
     const rawEstimate = Math.round(((base + roomTotal) * serviceFactor * conditionFactor + extrasTotal + petsTotal) * frequencyFactor);
     const minimumJob = safePrice(prices.minimumJob, defaults.minimumJob);
     const estimate = Math.max(rawEstimate, minimumJob);
-    const min = Math.max(0, Math.floor(estimate * 0.92));
+    // The customer's visible range must respect an owner-defined minimum job
+    // fee. Showing a lower bound below that fee would misrepresent the price.
+    const min = Math.max(minimumJob, Math.floor(estimate * 0.92));
     const max = Math.ceil(estimate * 1.08);
     return { estimate, min, max, minimumApplied: estimate > rawEstimate, bedrooms, bathrooms, scope, kitchen, living, service, condition, frequency, pets, largeHome: scope === "full" && largeHome, extras };
   }
