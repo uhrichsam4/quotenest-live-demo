@@ -16,6 +16,19 @@
     primary.textContent = "Request a tailored setup ↗";
     if (notice) notice.textContent =
       "Email us to confirm website compatibility and scope. You will receive a secure payment link when the project is agreed.";
+  } else if (primary && typeof config.interestUrl === "string") {
+    try {
+      const url = new URL(config.interestUrl);
+      if (url.protocol === "https:" && url.hostname === "github.com" &&
+          url.pathname === "/uhrichsam4/quotenest-live-demo/issues/new") {
+        primary.href = url.toString();
+        primary.textContent = "Ask about a tailored setup ↗";
+        primary.target = "_blank";
+        primary.rel = "noopener noreferrer";
+        if (notice) notice.textContent =
+          "Opens a public inquiry form on GitHub (free GitHub sign-in required). Share only general business details — no contact or payment information. You can also reply directly to any QuoteNest email you received.";
+      }
+    } catch (_) { /* Ignore invalid public inquiry URLs. */ }
   }
   if (payment && typeof config.paymentUrl === "string") {
     try {

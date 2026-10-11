@@ -42,3 +42,8 @@ and increased bookings are not guaranteed.
 Want to know whether it fits your website? Start with the
 [live interactive demonstration](https://uhrichsam4.github.io/quotenest-live-demo/)
 and the [setup details](https://uhrichsam4.github.io/quotenest-live-demo/setup.html).
+
+If you use GitHub, you can also open a
+[public general setup inquiry](https://github.com/uhrichsam4/quotenest-live-demo/issues/new?template=setup-request.yml).
+Please do not share private contact details, customer information, or price sheets
+in a public issue.

@@ -1,0 +1,62 @@
+name: Interested in QuoteNest
+description: Ask about a customized estimate calculator for your cleaning company.
+title: "QuoteNest setup inquiry"
+labels: ["customer-inquiry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for checking out QuoteNest. This form is **public** and requires a GitHub account.
+        Please share only general business information already available online.
+        Do not include your email address, phone number, financial details,
+        customer records, private rate sheets, or passwords.
+        The demonstration is at https://uhrichsam4.github.io/quotenest-live-demo/.
+  - type: input
+    id: website
+    attributes:
+      label: Public business website (optional)
+      description: If your company has a public website, link it here.
+      placeholder: https://example.com
+    validations:
+      required: false
+  - type: dropdown
+    id: website-platform
+    attributes:
+      label: Your website platform
+      options:
+        - WordPress
+        - Wix
+        - Squarespace
+        - Shopify
+        - Custom HTML / other
+        - No website yet
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: product-interest
+    attributes:
+      label: What would help most?
+      options:
+        - Estimate calculator on existing site
+        - Standalone instant estimate page
+        - More information before deciding
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: General business requirements (no private information)
+      description: Which public services should the calculator support?
+      placeholder: |
+        We do residential and move-out cleaning and want customers to see
+        an approximate price before sending an inquiry.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public-acknowledgment
+    attributes:
+      label: Public inquiry acknowledgment
+      options:
+        - label: I understand this request will be public and I won't post private information.
+          required: true
