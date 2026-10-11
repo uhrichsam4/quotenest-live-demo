@@ -28,10 +28,19 @@
     lastQuote = window.QuoteNestEngine.quote(config.prices, state);
     let currency = config.currency || "USD";
     if (!/^[A-Z]{3}$/.test(currency)) currency = "USD";
+    $("currencyCode").textContent = currency;
     try {
       $("price").textContent = window.QuoteNestEngine.money(lastQuote.min, currency)
         + " – " + window.QuoteNestEngine.money(lastQuote.max, currency);
     } catch (_) { $("price").textContent = lastQuote.min + " – " + lastQuote.max; }
+    $("quoteSummary").textContent = [
+      state.bedrooms + (state.bedrooms === 1 ? " bedroom" : " bedrooms"),
+      state.bathrooms + (state.bathrooms === 1 ? " bathroom" : " bathrooms"),
+      { standard: "Standard", deep: "Deep", moving: "Move in/out" }[state.service] + " cleaning"
+    ].join(" · ");
+    $("estimateNote").textContent = hasRecipient()
+      ? "Indicative range only. The cleaning business confirms its final quote after reviewing the property and service requirements."
+      : "Illustrative demo rates only. Every business enters its own prices. The final price is confirmed by the cleaning provider.";
     $("bedrooms").textContent = state.bedrooms;
     $("bathrooms").textContent = state.bathrooms;
     $("request").textContent = hasRecipient() ? "Request a final quote →" : "How quote requests work →";

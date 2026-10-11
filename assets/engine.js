@@ -5,12 +5,12 @@
   root.QuoteNestEngine = engine;
 })(typeof window !== "undefined" ? window : globalThis, function () {
   const defaults = {
-    base: 65, partialBase: 35, minimumJob: 95, bedroom: 30, bathroom: 23,
-    kitchen: 50, living: 35, largeHome: 48, pets: 20,
+    base: 110, partialBase: 60, minimumJob: 165, bedroom: 45, bathroom: 35,
+    kitchen: 65, living: 45, largeHome: 65, pets: 25,
     service: { standard: 1, deep: 1.55, moving: 1.9 },
     condition: { light: 0.95, typical: 1, heavy: 1.3 },
     frequency: { once: 1, biweekly: 0.94, weekly: 0.88 },
-    extras: { oven: 35, fridge: 30, windows: 45 }
+    extras: { oven: 45, fridge: 40, windows: 60 }
   };
   function bounded(value, lower, upper) {
     const number = Number(value);
@@ -57,7 +57,8 @@
     return { estimate, min, max, minimumApplied: estimate > rawEstimate, bedrooms, bathrooms, scope, kitchen, living, service, condition, frequency, pets, largeHome: scope === "full" && largeHome, extras };
   }
   function money(amount, currency) {
-    return new Intl.NumberFormat("en", { style: "currency", currency: currency || "USD", maximumFractionDigits: 0 }).format(amount);
+    // In the Canadian sample, show the compact $ amount with a nearby CAD label.
+    return new Intl.NumberFormat("en-CA", { style: "currency", currency: currency || "USD", maximumFractionDigits: 0 }).format(amount);
   }
   return { quote, money, defaults };
 });

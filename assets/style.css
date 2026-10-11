@@ -80,6 +80,8 @@ h1{font-size:clamp(42px,5.1vw,70px);line-height:1.1;margin:22px 0}
 .estimate-panel .label{color:#477664;font-size:12px;font-weight:700}
 .estimate-panel strong{display:block;margin:7px 0;font:800 28px Manrope,system-ui,sans-serif;letter-spacing:-.05em;color:#155c49}
 .estimate-panel small{font-size:11px;color:#5b8777;line-height:1.5}
+.estimate-panel .quote-currency{display:inline-block;margin-left:6px;border:1px solid currentColor;border-radius:5px;padding:2px 5px;font-size:10px;letter-spacing:.08em;vertical-align:middle}
+.estimate-panel .quote-summary{font-size:12px;font-weight:650;line-height:1.5;margin:7px 0 12px;color:#3e7463}
 .quote-app .request{width:100%;margin-top:14px;background:var(--accent,#137d72)}
 .quote-app .request:hover{filter:brightness(.9)}
 .quote-app .hint{color:#81918a;font-size:11px;text-align:center;margin:14px 0 0;line-height:1.6}
