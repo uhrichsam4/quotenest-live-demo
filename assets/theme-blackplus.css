@@ -305,3 +305,32 @@ h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;font-weight:700;letter-spacing
   :root{scroll-behavior:auto}
   .primary-action,.ghost-action,.new-steps article,.topnav a,.nav-action{transition:none}
 }
+
+/* One-time service offer — matches QuoteNest's dark visual system. */
+.sales-page{padding:78px 42px 90px}
+.sales-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:68px;align-items:center}
+.sales-head h1{font-size:clamp(62px,7.2vw,105px);line-height:1.04;margin:30px 0}
+.sales-head>div>p:not(.sales-notice){max-width:530px;font-size:16px;line-height:1.8;color:#b4adb9}
+.sales-actions{justify-content:flex-start;margin-top:30px}
+.sales-notice{max-width:530px;margin-top:26px;font-size:13px;color:#9f9aa7;line-height:1.75}
+.sales-offer{border:1px solid #62526a;border-radius:25px;padding:42px;background:linear-gradient(145deg,#342839,#16151c 57%,#252130);box-shadow:0 35px 110px #0009,0 0 85px #9e7bb520}
+.sales-kicker{font-size:11px;letter-spacing:.17em;color:#e0bedc;font-weight:800}
+.sales-price{display:flex;align-items:baseline;gap:10px;margin:24px 0}
+.sales-price span{font-size:18px;color:#c6b7cc}
+.sales-price strong{font:700 104px Manrope,sans-serif;line-height:1;letter-spacing:-.095em;background:linear-gradient(100deg,#f6c7b6,#d4c6ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sales-offer>p{color:#b7aeba;font-size:13px;line-height:1.7}
+.sales-divider{height:1px;background:#ffffff25;margin:28px 0}
+.sales-offer ul{padding:0;margin:0 0 30px;list-style:none}
+.sales-offer li{color:#d2cad5;padding:8px 0 8px 27px;position:relative;font-size:14px;line-height:1.6}
+.sales-offer li:before{content:"✓";position:absolute;left:0;color:#d5b5ec;font-weight:800}
+.sales-pay{width:100%;margin-top:12px}
+.sales-subtext{font-size:11px;color:#a299ae;display:block;margin-top:18px}
+.sales-process{margin-top:125px}
+.sales-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:30px}
+.sales-steps article{padding:24px;border:1px solid #38323e;border-radius:20px;background:#15131a}
+.sales-steps article>span{font:700 17px Manrope,sans-serif;color:#cdbbf0}
+.sales-steps h2{font-size:25px;line-height:1.2;margin:18px 0 10px}
+.sales-steps p{font-size:13px;line-height:1.7;color:#a8a1ae}
+.sales-disclaimer{margin:65px 0 0;color:#8b8490;max-width:930px;font-size:12px;line-height:1.8}
+@media(max-width:900px){.sales-head{grid-template-columns:1fr;gap:40px}.sales-page{padding:42px 26px 70px}.sales-offer{max-width:650px}.sales-process{margin-top:70px}}
+@media(max-width:640px){.sales-page{padding:44px 18px 65px}.sales-head h1{font-size:clamp(54px,12vw,78px)}.sales-steps{grid-template-columns:1fr;gap:12px}.sales-offer{padding:28px}.sales-price strong{font-size:85px}.sales-actions{align-items:flex-start}.sales-head{gap:32px}}
