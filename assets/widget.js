@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   let config = window.QUOTENEST_CONFIG || {};
-  const state = { bedrooms: 2, bathrooms: 1, scope: "full", kitchen: true, living: true, service: "standard", frequency: "once", largeHome: false, extras: [] };
+  const state = { bedrooms: 2, bathrooms: 1, scope: "full", kitchen: true, living: true, service: "standard", condition: "typical", frequency: "once", pets: false, largeHome: false, extras: [] };
   const $ = (id) => document.getElementById(id);
   let lastQuote;
 
@@ -15,6 +15,9 @@
       return url.protocol === "https:" && url.hostname === "script.google.com"
         && /^\/macros\/s\/[^/]+\/exec$/.test(url.pathname);
     } catch (_) { return false; }
+  }
+  function hasRecipient() {
+    return validEndpoint(config.leadEndpoint) || validEmail(config.ownerEmail);
   }
   function display() {
     const title = String(config.brand || "Your Cleaning Company").slice(0, 90);
@@ -31,6 +34,7 @@
     } catch (_) { $("price").textContent = lastQuote.min + " – " + lastQuote.max; }
     $("bedrooms").textContent = state.bedrooms;
     $("bathrooms").textContent = state.bathrooms;
+    $("request").textContent = hasRecipient() ? "Request a final quote →" : "How quote requests work →";
     $("partialOptions").hidden = state.scope !== "partial";
     $("largeHomeRow").hidden = state.scope === "partial";
     for (const item of document.querySelectorAll(".choice")) {
@@ -47,8 +51,11 @@
       "Living area: " + (lastQuote.living ? "yes" : "no"),
       "Large home: " + (lastQuote.largeHome ? "yes" : "no"),
       "Frequency: " + lastQuote.frequency,
+      "Property condition: " + lastQuote.condition,
+      "Pets in home: " + (lastQuote.pets ? "yes" : "no"),
       "Extras: " + (lastQuote.extras.join(", ") || "none"),
       "Indicative range: " + $("price").textContent,
+      "Minimum job charge applied: " + (lastQuote.minimumApplied ? "yes" : "no"),
       "Final quote requires business confirmation."
     ].join("\n");
   }
@@ -69,6 +76,10 @@
     state.largeHome = this.checked;
     display();
   });
+  $("pets").addEventListener("change", function () {
+    state.pets = this.checked;
+    display();
+  });
   for (const name of ["kitchen", "living"]) {
     $(name).addEventListener("change", function () {
       state[name] = this.checked;
@@ -82,12 +93,17 @@
     });
   }
   $("request").addEventListener("click", function () {
+    if (!hasRecipient()) {
+      $("demoStatus").textContent =
+        "This is a demonstration. There is no recipient connected, so quote requests are disabled. Businesses can connect their own email or Google Sheets in the Pricing Studio.";
+      return;
+    }
     const form = $("lead");
     form.hidden = false;
     $("request").hidden = true;
     form.elements.startedAt.value = String(Date.now());
-    $("leadStatus").textContent = !validEndpoint(config.leadEndpoint) && !validEmail(config.ownerEmail)
-      ? "Demo only: enter a working business email in the Pricing Studio to enable requests." : "";
+    $("demoStatus").textContent = "";
+    $("leadStatus").textContent = "";
   });
   $("lead").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -128,6 +144,7 @@
     config = event.data.config;
     $("lead").hidden = true;
     $("request").hidden = false;
+    $("demoStatus").textContent = "";
     display();
   });
   display();

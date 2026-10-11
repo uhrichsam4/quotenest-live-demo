@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://uhrichsam4.github.io/quotenest-live-demo/sitemap.xml

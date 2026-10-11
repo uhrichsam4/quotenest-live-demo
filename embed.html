@@ -39,9 +39,16 @@
         <button type="button" class="choice" data-group="frequency" data-value="biweekly" aria-pressed="false">Every 2 weeks</button>
         <button type="button" class="choice" data-group="frequency" data-value="weekly" aria-pressed="false">Weekly</button>
       </div>
+      <label class="field-title">Current condition of the space</label>
+      <div class="choice-row" role="group" aria-label="Cleaning condition">
+        <button type="button" class="choice" data-group="condition" data-value="light" aria-pressed="false">Light upkeep</button>
+        <button type="button" class="choice" data-group="condition" data-value="typical" aria-pressed="true">Typical</button>
+        <button type="button" class="choice" data-group="condition" data-value="heavy" aria-pressed="false">Extra attention</button>
+      </div>
       <label class="field-title">Optional add-ons</label>
       <div class="checklist">
         <label class="checkline" id="largeHomeRow"><input type="checkbox" id="largeHome"> Large home (2,000+ sq ft)</label>
+        <label class="checkline"><input type="checkbox" id="pets"> Pets in the home</label>
         <label class="checkline"><input type="checkbox" data-extra="oven"> Inside oven</label>
         <label class="checkline"><input type="checkbox" data-extra="fridge"> Inside fridge</label>
         <label class="checkline"><input type="checkbox" data-extra="windows"> Interior windows</label>
@@ -52,6 +59,7 @@
         <small>Indicative range only. Final pricing is subject to the provider reviewing the property and service requirements.</small>
       </div>
       <button type="button" class="btn request" id="request">Request a final quote →</button>
+      <p class="hint" id="demoStatus" role="status" aria-live="polite"></p>
       <form id="lead" class="lead-fields" hidden>
         <strong style="font-size:14px">Send your quote request</strong>
         <label>Full name<input name="name" type="text" required maxlength="100" autocomplete="name"></label>

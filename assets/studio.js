@@ -6,9 +6,11 @@
   const get = (name) => form.elements.namedItem(name);
   const fields = {
     base: base.prices.base, partialBase: base.prices.partialBase,
+    minimumJob: base.prices.minimumJob,
     bedroom: base.prices.bedroom, bathroom: base.prices.bathroom,
     kitchen: base.prices.kitchen, living: base.prices.living,
-    largeHome: base.prices.largeHome, deep: base.prices.service.deep,
+    largeHome: base.prices.largeHome, pets: base.prices.pets, deep: base.prices.service.deep,
+    light: base.prices.condition.light, heavy: base.prices.condition.heavy,
     moving: base.prices.service.moving, oven: base.prices.extras.oven,
     fridge: base.prices.extras.fridge, windows: base.prices.extras.windows,
     weekly: base.prices.frequency.weekly, biweekly: base.prices.frequency.biweekly
@@ -24,13 +26,17 @@
     }
     config.prices.base = n("base", 0, 100000);
     config.prices.partialBase = n("partialBase", 0, 100000);
+    config.prices.minimumJob = n("minimumJob", 0, 100000);
     config.prices.bedroom = n("bedroom", 0, 100000);
     config.prices.bathroom = n("bathroom", 0, 100000);
     config.prices.kitchen = n("kitchen", 0, 100000);
     config.prices.living = n("living", 0, 100000);
     config.prices.largeHome = n("largeHome", 0, 100000);
+    config.prices.pets = n("pets", 0, 100000);
     config.prices.service.deep = n("deep", 1, 5);
     config.prices.service.moving = n("moving", 1, 5);
+    config.prices.condition.light = n("light", .5, 2);
+    config.prices.condition.heavy = n("heavy", 1, 5);
     config.prices.extras.oven = n("oven", 0, 100000);
     config.prices.extras.fridge = n("fridge", 0, 100000);
     config.prices.extras.windows = n("windows", 0, 100000);

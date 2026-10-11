@@ -8,12 +8,15 @@ window.QUOTENEST_CONFIG = {
   prices: {
     base: 65,
     partialBase: 35,
+    minimumJob: 95,
     bedroom: 30,
     bathroom: 23,
     kitchen: 50,
     living: 35,
     largeHome: 48,
+    pets: 20,
     service: { standard: 1, deep: 1.55, moving: 1.9 },
+    condition: { light: 0.95, typical: 1, heavy: 1.3 },
     frequency: { once: 1, biweekly: 0.94, weekly: 0.88 },
     extras: { oven: 35, fridge: 30, windows: 45 }
   },
