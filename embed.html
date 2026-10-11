@@ -59,6 +59,13 @@
         <p id="quoteSummary" class="quote-summary">2 bedrooms · 1 bathroom · Standard cleaning</p>
         <small id="estimateNote">Illustrative demo rates. Final pricing is confirmed by the cleaning business after reviewing the property and service requirements.</small>
       </div>
+      <details class="quote-breakdown" id="breakdown">
+        <summary>See how this estimate is calculated <span aria-hidden="true">⌄</span></summary>
+        <div class="breakdown-items" id="breakdownItems"></div>
+        <div class="breakdown-total"><strong>Estimated midpoint</strong><strong id="breakdownTotal"></strong></div>
+        <p>Approximate estimate before applicable taxes. Final pricing depends on the provider's review.</p>
+      </details>
+      <button type="button" class="estimate-export" id="printEstimate">↗ Save / print this estimate</button>
       <button type="button" class="btn request" id="request">Request a final quote →</button>
       <p class="hint" id="demoStatus" role="status" aria-live="polite"></p>
       <form id="lead" class="lead-fields" hidden>
@@ -76,5 +83,14 @@
       <p class="hint">No obligation. This calculator does not charge you or reserve an appointment.</p>
     </section>
   </main>
+  <section class="print-estimate-sheet" id="printArea" aria-hidden="true">
+    <div class="print-brand" id="printBrand"></div>
+    <h1>Cleaning estimate</h1>
+    <p class="print-date" id="printDate"></p>
+    <p class="print-range" id="printRange"></p>
+    <p id="printSummary"></p>
+    <div id="printBreakdown"></div>
+    <p class="print-disclaimer">This is a non-binding estimated price range based on the selected services, excluding applicable taxes. Final pricing is confirmed by the cleaning business after review. This printout is not a reservation or receipt.</p>
+  </section>
 </body>
 </html>

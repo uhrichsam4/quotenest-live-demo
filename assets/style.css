@@ -82,6 +82,34 @@ h1{font-size:clamp(42px,5.1vw,70px);line-height:1.1;margin:22px 0}
 .estimate-panel small{font-size:11px;color:#5b8777;line-height:1.5}
 .estimate-panel .quote-currency{display:inline-block;margin-left:6px;border:1px solid currentColor;border-radius:5px;padding:2px 5px;font-size:10px;letter-spacing:.08em;vertical-align:middle}
 .estimate-panel .quote-summary{font-size:12px;font-weight:650;line-height:1.5;margin:7px 0 12px;color:#3e7463}
+.quote-breakdown{margin-top:13px;border:1px solid #dbe5df;border-radius:12px;overflow:hidden}
+.quote-breakdown summary{cursor:pointer;padding:15px 16px;font-size:13px;font-weight:750;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.quote-breakdown summary::-webkit-details-marker{display:none}
+.quote-breakdown summary span{transition:transform .2s}
+.quote-breakdown[open] summary span{transform:rotate(180deg)}
+.breakdown-items{border-top:1px solid #e1e8e2;padding:13px 16px 0}
+.breakdown-row{display:flex;justify-content:space-between;gap:16px;padding:5px 0;font-size:12px;line-height:1.6}
+.breakdown-row>span:last-child{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.breakdown-row .discount{color:#2d805f}
+.breakdown-total{margin:7px 16px 0;padding:14px 0;border-top:1px solid #dce5de;display:flex;justify-content:space-between;gap:12px;font-size:13px}
+.quote-breakdown p{margin:0;padding:0 16px 15px;font-size:11px;line-height:1.6;color:#74877a}
+.estimate-export{display:block;width:100%;margin:13px 0 0;padding:12px 10px;background:transparent;border:1px solid #d4e2da;border-radius:11px;color:#336458;font-size:12px;font-weight:750}
+.estimate-export:hover{background:#eef6ef}
+.print-estimate-sheet{display:none}
+@media print{
+  @page{size:A4;margin:17mm}
+  body.widget{background:white!important;color:#111!important}
+  .widget .quote-app{display:none!important}
+  .print-estimate-sheet{display:block!important;font:15px/1.5 system-ui,sans-serif;max-width:800px;margin:0 auto;padding:0;color:#121212}
+  .print-brand{font-size:20px;font-weight:800;letter-spacing:.05em}
+  .print-estimate-sheet h1{font-size:36px;margin:40px 0 10px}
+  .print-date{color:#555;font-size:12px}
+  .print-range{font-size:35px;font-weight:800;letter-spacing:-.03em;margin:38px 0 12px}
+  #printBreakdown{padding:20px 0;border-top:1px solid #ccc;margin-top:40px}
+  #printBreakdown .breakdown-row{font-size:14px;padding:8px 0}
+  #printBreakdown .total{border-top:2px solid #222;margin-top:10px;padding-top:18px;font-weight:800}
+  .print-disclaimer{border-top:1px solid #ddd;margin-top:45px;padding-top:18px;font-size:11px;color:#555}
+}
 .quote-app .request{width:100%;margin-top:14px;background:var(--accent,#137d72)}
 .quote-app .request:hover{filter:brightness(.9)}
 .quote-app .hint{color:#81918a;font-size:11px;text-align:center;margin:14px 0 0;line-height:1.6}

@@ -54,7 +54,31 @@
     // fee. Showing a lower bound below that fee would misrepresent the price.
     const min = Math.max(minimumJob, Math.floor(estimate * 0.92));
     const max = Math.ceil(estimate * 1.08);
-    return { estimate, min, max, minimumApplied: estimate > rawEstimate, bedrooms, bathrooms, scope, kitchen, living, service, condition, frequency, pets, largeHome: scope === "full" && largeHome, extras };
+    // Break down the *same* calculation into line items, retaining
+    // rounding differences at the adjustment step. The visible items must
+    // always sum to the estimate and agree with the quoted range.
+    const rateBedroom = safePrice(prices.bedroom, defaults.bedroom);
+    const rateBathroom = safePrice(prices.bathroom, defaults.bathroom);
+    const rateKitchen = safePrice(prices.kitchen, defaults.kitchen);
+    const rateLiving = safePrice(prices.living, defaults.living);
+    const rateLargeHome = safePrice(prices.largeHome, defaults.largeHome);
+    const baseService = base + roomTotal;
+    const afterService = Math.round(baseService * serviceFactor);
+    const afterCondition = Math.round(baseService * serviceFactor * conditionFactor);
+    const afterExtras = afterCondition + extrasTotal + petsTotal;
+    const items = [{ label: scope === "partial" ? "Selected-room visit fee" : "Base visit fee", amount: base }];
+    if (bedrooms) items.push({ label: bedrooms + (bedrooms === 1 ? " bedroom" : " bedrooms"), amount: bedrooms * rateBedroom });
+    if (bathrooms) items.push({ label: bathrooms + (bathrooms === 1 ? " bathroom" : " bathrooms"), amount: bathrooms * rateBathroom });
+    if (kitchen) items.push({ label: "Kitchen", amount: rateKitchen });
+    if (living) items.push({ label: "Living area", amount: rateLiving });
+    if (largeHome && scope === "full") items.push({ label: "Large-home supplement", amount: rateLargeHome });
+    if (afterService !== baseService) items.push({ label: service === "deep" ? "Deep-clean adjustment" : service === "moving" ? "Move-in/out adjustment" : "Service adjustment", amount: afterService - baseService });
+    if (afterCondition !== afterService) items.push({ label: "Property-condition adjustment", amount: afterCondition - afterService });
+    for (const extra of extras) items.push({ label: { oven: "Inside oven", fridge: "Inside fridge", windows: "Interior windows" }[extra], amount: safePrice(prices.extras && prices.extras[extra], defaults.extras[extra]) });
+    if (pets) items.push({ label: "Pets in the home", amount: petsTotal });
+    if (rawEstimate !== afterExtras) items.push({ label: "Frequency adjustment", amount: rawEstimate - afterExtras });
+    if (estimate > rawEstimate) items.push({ label: "Minimum visit charge adjustment", amount: estimate - rawEstimate });
+    return { estimate, min, max, items, minimumApplied: estimate > rawEstimate, bedrooms, bathrooms, scope, kitchen, living, service, condition, frequency, pets, largeHome: scope === "full" && largeHome, extras };
   }
   function money(amount, currency) {
     // In the Canadian sample, show the compact $ amount with a nearby CAD label.

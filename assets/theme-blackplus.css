@@ -175,6 +175,16 @@ h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;font-weight:700;letter-spacing
 .estimate-panel strong{color:#f8e8f0}
 .estimate-panel small{color:#c9becd}
 .estimate-panel .quote-summary{color:#e5dbe9}
+.quote-breakdown{border-color:#504456;background:#19161e}
+.quote-breakdown summary{color:#e8e0e9}
+.quote-breakdown[open] summary{background:#211b26}
+.breakdown-items{border-color:#4a3d4e}
+.breakdown-row{color:#d9cedc}
+.breakdown-row .discount{color:#bcdfd2}
+.breakdown-total{border-color:#4a3d4e}
+.quote-breakdown p{color:#a29aab}
+.estimate-export{border-color:#67536c;color:#e6cfe9}
+.estimate-export:hover{background:#33293b}
 .quote-app .request{background:var(--accent,#c5b8ff);color:#150f1b;border-radius:10px}
 .quote-app .request:hover{filter:brightness(1.11)}
 .quote-app .hint{color:#89828e}
@@ -333,5 +343,14 @@ h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;font-weight:700;letter-spacing
 .sales-steps h2{font-size:25px;line-height:1.2;margin:18px 0 10px}
 .sales-steps p{font-size:13px;line-height:1.7;color:#a8a1ae}
 .sales-disclaimer{margin:65px 0 0;color:#8b8490;max-width:930px;font-size:12px;line-height:1.8}
+.sales-faq{margin-top:105px}
+.sales-faq h2{font-size:clamp(36px,5vw,62px);line-height:1.12;margin:30px 0 38px}
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.faq-grid details{border:1px solid #38323e;background:#17141b;border-radius:18px;padding:0 22px;align-self:start}
+.faq-grid summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;list-style:none;font-weight:700;font-size:15px;padding:24px 0}
+.faq-grid summary::-webkit-details-marker{display:none}
+.faq-grid summary:after{content:"+";font-size:22px;color:#cab9ed;flex-shrink:0}
+.faq-grid details[open] summary:after{content:"−"}
+.faq-grid details p{color:#b0a6b7;border-top:1px solid #3c3443;padding-top:18px;font-size:13px;line-height:1.75;margin:0 0 24px}
 @media(max-width:900px){.sales-head{grid-template-columns:1fr;gap:40px}.sales-page{padding:42px 26px 70px}.sales-offer{max-width:650px}.sales-process{margin-top:70px}}
-@media(max-width:640px){.sales-page{padding:44px 18px 65px}.sales-head h1{font-size:clamp(54px,12vw,78px)}.sales-steps{grid-template-columns:1fr;gap:12px}.sales-offer{padding:28px}.sales-price strong{font-size:85px}.sales-actions{align-items:flex-start}.sales-head{gap:32px}}
+@media(max-width:640px){.sales-page{padding:44px 18px 65px}.sales-head h1{font-size:clamp(54px,12vw,78px)}.sales-steps{grid-template-columns:1fr;gap:12px}.sales-offer{padding:28px}.sales-price strong{font-size:85px}.sales-actions{align-items:flex-start}.sales-head{gap:32px}.faq-grid{grid-template-columns:1fr}.sales-faq{margin-top:75px}}

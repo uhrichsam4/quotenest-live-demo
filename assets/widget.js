@@ -19,6 +19,43 @@
   function hasRecipient() {
     return validEndpoint(config.leadEndpoint) || validEmail(config.ownerEmail);
   }
+  function currencyCode() {
+    return /^[A-Z]{3}$/.test(config.currency || "") ? config.currency : "USD";
+  }
+  function formatMoney(amount) {
+    try {
+      return window.QuoteNestEngine.money(amount, currencyCode());
+    } catch (_) {
+      return String(amount);
+    }
+  }
+  function itemRow(item) {
+    const row = document.createElement("div");
+    row.className = "breakdown-row";
+    const title = document.createElement("span");
+    title.textContent = item.label;
+    const value = document.createElement("span");
+    value.textContent = formatMoney(item.amount);
+    if (item.amount < 0) value.className = "discount";
+    row.append(title, value);
+    return row;
+  }
+  function updateBreakdown() {
+    const items = lastQuote.items.map(itemRow);
+    $("breakdownItems").replaceChildren(...items);
+    $("breakdownTotal").textContent = formatMoney(lastQuote.estimate);
+    $("printBrand").textContent = String(config.brand || "Cleaning Company").slice(0, 90);
+    $("printDate").textContent = "Prepared " + new Date().toLocaleDateString();
+    $("printRange").textContent = $("price").textContent + " " + currencyCode();
+    $("printSummary").textContent = $("quoteSummary").textContent +
+      " · " + ({ full: "Entire home", partial: "Selected rooms" }[lastQuote.scope]) +
+      " · Condition: " + lastQuote.condition +
+      " · Frequency: " + lastQuote.frequency;
+    const printRows = lastQuote.items.map(itemRow);
+    const total = itemRow({ label: "Estimated midpoint", amount: lastQuote.estimate });
+    total.classList.add("total");
+    $("printBreakdown").replaceChildren(...printRows, total);
+  }
   function display() {
     const title = String(config.brand || "Your Cleaning Company").slice(0, 90);
     $("brand").textContent = title;
@@ -26,8 +63,7 @@
     $("consentText").textContent = String(config.consentText || "I agree to be contacted about my quote.").slice(0, 300);
     document.documentElement.style.setProperty("--accent", /^#[0-9a-fA-F]{6}$/.test(config.accent || "") ? config.accent : "#c5b8ff");
     lastQuote = window.QuoteNestEngine.quote(config.prices, state);
-    let currency = config.currency || "USD";
-    if (!/^[A-Z]{3}$/.test(currency)) currency = "USD";
+    const currency = currencyCode();
     $("currencyCode").textContent = currency;
     try {
       $("price").textContent = window.QuoteNestEngine.money(lastQuote.min, currency)
@@ -41,6 +77,7 @@
     $("estimateNote").textContent = hasRecipient()
       ? "Indicative range only. The cleaning business confirms its final quote after reviewing the property and service requirements."
       : "Illustrative demo rates only. Every business enters its own prices. The final price is confirmed by the cleaning provider.";
+    updateBreakdown();
     $("bedrooms").textContent = state.bedrooms;
     $("bathrooms").textContent = state.bathrooms;
     $("request").textContent = hasRecipient() ? "Request a final quote →" : "How quote requests work →";
@@ -113,6 +150,10 @@
     form.elements.startedAt.value = String(Date.now());
     $("demoStatus").textContent = "";
     $("leadStatus").textContent = "";
+  });
+  $("printEstimate").addEventListener("click", function () {
+    updateBreakdown();
+    window.print();
   });
   $("lead").addEventListener("submit", function (event) {
     event.preventDefault();
